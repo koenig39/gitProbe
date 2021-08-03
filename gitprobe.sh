@@ -35,41 +35,41 @@ function CreateNewFeature() {
   done
 }
 
-function CheckoutBranch {
+function CheckoutBranch() {
   echo "Checkout to:"
   git branch
   read branchName
   git checkout $branchName
 }
 
-function GitGraph {
-  git log --graph --all --pretty=oneline
+function GitGraph() {
+  git log  --all --graph --oneline
 }
 
-function AddCommit {
-  echo "new code" >> code.txt && git add . && git commit -m "$(date +%Y%m%d-%H:%M:%S)"
+function AddCommit() {
+  echo "new code" >>code.txt && git add . && git commit -m "$(date +%Y%m%d-%H:%M:%S)"
 }
 
-function Merge {
-    echo "You are in:"
-    git branch --show-current
-    echo "What branch do you want to merge:"
-    git branch
-    read mergeBranch
-    echo "Options: ?"
-    read mergeOptions
-    git merge $mergeOptions $mergeBranch
+function Merge() {
+  echo "You are in:"
+  git branch --show-current
+  echo "What branch do you want to merge:"
+  git branch
+  read mergeBranch
+  echo "Options: ?"
+  read mergeOptions
+  git merge $mergeOptions $mergeBranch
 }
 
-function Rebase {
-    echo "Enter the branch name where you want to rebase current branch:"
-    read rebaseTo
-    echo "Options: ?"
-    read rebaseOptions
-    git rebase $rebaseOptions $rebaseTo
+function Rebase() {
+  echo "Enter the branch name where you want to rebase current branch:"
+  read rebaseTo
+  echo "Options: ?"
+  read rebaseOptions
+  git rebase $rebaseOptions $rebaseTo
 }
 
-function Custom {
+function Custom() {
   echo "Enter your command:"
   read command
   $command
